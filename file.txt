@@ -1,0 +1,23 @@
+scooter_rent=# SELECT "Couriers"."login", COUNT("Orders"."courierId") AS "deliveryCount" FROM "Couriers" JOIN "Orders" ON "Couriers"."id" = "Orders"."courierId" WHERE "Orders"."inDelivery" = true GROUP BY "Couriers"."login";
+
+login | deliveryCount
+
+- ------+---------------
+
+vika  |             2
+
+(1 row)
+
+scooter_rent=# SELECT "track", CASE WHEN "finished" = true THEN 2 WHEN "cancelled" = true THEN -1 WHEN "inDelivery" = true THEN 1 ELSE 0 END AS "status" FROM "Orders";
+
+track  | status
+
+- -------+--------
+
+597455 |      0
+
+916229 |      1
+
+916229 |      1
+
+(3 rows)
