@@ -1,3 +1,4 @@
+#Виктория Д., 36 когорта, финальный проект
 import sender_stand_request
 import data 
 
